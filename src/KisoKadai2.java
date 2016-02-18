@@ -13,18 +13,27 @@ public class KisoKadai2 {
         if(ran<0){//もし乱数がマイナスだったら-1をかけてプラスに
             ran*= -1;
         }
+
         System.out.println("ＣＰＵが１～１００の数字をランダムで作成しますそれを当ててください");
 
         while(end==0){
             try{
+
+
+
                 System.out.println("１～１００の数字を入力してください、 終了するときは1000を入力してください");
                 String str = br.readLine();
                 int nu= Integer.parseInt(str);
                 if(nu==1000){
                     break;
                 }
+                if(nu >= 1 && nu < 100){
+                }else{
+                	System.out.println("入力エラーです\n１～１００の範囲で数字を入力してください");
+                	continue;
+                }
                 if(nu==ran){
-                    System.out.println("正解です！");
+                	System.out.println("正解です！");
                     end = 1;
                 }else{
                     if(nu>ran){

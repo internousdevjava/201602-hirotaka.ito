@@ -11,11 +11,16 @@ public class KisoKadai3 {
 
 	public static void main(String args[]) throws IOException{
 		System.out.println("ファイル名を入力してください");
-		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("[例] C:\\test\\test.txt");
 
-		String x = br.readLine();
-		File dir=new File(new file.getParent());
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String str = br.readLine();
+		if(str.length()==0){
 
+
+		File file = new File(args[0]);
+		File dir=new File(file.getParent());
+		try{
 		if(!dir.exists()){
 			System.out.println("フォルダがありません。:"+file.getAbsolutePath());
 			dir.mkdirs();
@@ -38,19 +43,21 @@ public class KisoKadai3 {
 				System.out.println(e);
 			}
 		}
-
+}catch(Exception e){
+			System.out.println("");
+		}
 
 
 		int end = 0;
 		while(end==0){
 
 			System.out.println("\n\n--メニュー--\n\n 1:読み込み\n 2:書き込み\n99:終了\nを入力してください");
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			String str = br.readLine();
+			BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
+			String str1 = br1.readLine();
 			int nu = 0;
 
-			if(str.matches("^[0-9]+$")){
-				nu=Integer.parseInt(str);
+			if(str1.matches("^[0-9]+$")){
+				nu=Integer.parseInt(str1);
 			}else{
 				System.out.println("\n----------\n半角数値でメニューを選択してください。\n----------\n");
 			}
@@ -118,5 +125,4 @@ public class KisoKadai3 {
 		System.out.println("--処理終了--");
 	}
 }
-
-
+}
