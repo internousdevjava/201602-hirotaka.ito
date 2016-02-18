@@ -7,27 +7,34 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+
 public class KisoKadai3 {
 
 	public static void main(String args[]) throws IOException{
-		System.out.println("ファイル名を入力してください");
+		System.out.println("フォルダ名を入力してください");
 		System.out.println("[例] C:\\test\\test.txt");
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+
 		String str = br.readLine();
-		if(str.length()==0){
+		File dir = new File(str);
 
 
-		File file = new File(args[0]);
-		File dir=new File(file.getParent());
-		try{
 		if(!dir.exists()){
-			System.out.println("フォルダがありません。:"+file.getAbsolutePath());
+			System.out.println("フォルダがありません。:"+dir.getAbsolutePath());
 			dir.mkdirs();
 			System.out.println("作成成功");
 		} else {
 			System.out.println("フォルダは既に存在します。");
 		}
+
+		System.out.println("ファイル名を入力してください");
+
+		BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
+
+		String str2 = br2.readLine();
+		File file=new File(str2);
 
 		if(file.exists()){
 			System.out.println("ファイルは既に存在します。\n" + file.getAbsolutePath());
@@ -42,8 +49,8 @@ public class KisoKadai3 {
 			}catch(IOException e){
 				System.out.println(e);
 			}
-		}
-}catch(Exception e){
+
+		catch(Exception e){
 			System.out.println("");
 		}
 
@@ -88,10 +95,10 @@ public class KisoKadai3 {
 				try {
 					boolean mode = false;
 					System.out.println("モードの設定。1:追記、2:上書き");
-					BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
-					String str2 = br2.readLine();
+					BufferedReader br3 = new BufferedReader(new InputStreamReader(System.in));
+					String str3 = br3.readLine();
 					// モードを決める
-					switch (str2) {
+					switch (str3) {
 					case "1":
 						mode = true;
 						break;
@@ -105,9 +112,9 @@ public class KisoKadai3 {
 					PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
 
 					//内容を指定する
-					BufferedReader br3 = new BufferedReader(new InputStreamReader(System.in));
-					String str3 = br3.readLine();
-					pw.println(str3);
+					BufferedReader br4 = new BufferedReader(new InputStreamReader(System.in));
+					String str4 = br4.readLine();
+					pw.println(str4);
 
 					//ファイルに書き出す
 					pw.close();
@@ -124,5 +131,5 @@ public class KisoKadai3 {
 		}
 		System.out.println("--処理終了--");
 	}
-}
+	}
 }

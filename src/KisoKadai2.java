@@ -27,7 +27,7 @@ public class KisoKadai2 {
                 if(nu==1000){
                     break;
                 }
-                if(nu >= 1 && nu < 100){
+                if(nu >= 1 && nu < 101){
                 }else{
                 	System.out.println("入力エラーです\n１～１００の範囲で数字を入力してください");
                 	continue;
