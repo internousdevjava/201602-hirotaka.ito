@@ -22,9 +22,9 @@ public class KisoKadai3 {
 
 
 		if(!dir.exists()){
-			System.out.println("フォルダがありません。:"+dir.getAbsolutePath());
+			System.out.println("この名前のフォルダがありません。:"+dir.getAbsolutePath());
 			dir.mkdirs();
-			System.out.println("作成成功");
+			System.out.println("この名前のフォルダの作成成功");
 		} else {
 			System.out.println("フォルダは既に存在します。");
 		}
@@ -35,7 +35,6 @@ public class KisoKadai3 {
 
 		String str2 = br2.readLine();
 		File file=new File(str2);
-
 		if(file.exists()){
 			System.out.println("ファイルは既に存在します。\n" + file.getAbsolutePath());
 		}else{
@@ -46,6 +45,7 @@ public class KisoKadai3 {
 				}else{
 					System.out.println("作成失敗");
 				}
+
 			}catch(IOException e){
 				System.out.println(e);
 			}
@@ -59,12 +59,12 @@ public class KisoKadai3 {
 		while(end==0){
 
 			System.out.println("\n\n--メニュー--\n\n 1:読み込み\n 2:書き込み\n99:終了\nを入力してください");
-			BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
-			String str1 = br1.readLine();
+			BufferedReader br3 = new BufferedReader(new InputStreamReader(System.in));
+			String str3 = br3.readLine();
 			int nu = 0;
 
-			if(str1.matches("^[0-9]+$")){
-				nu=Integer.parseInt(str1);
+			if(str3.matches("^[0-9]+$")){
+				nu=Integer.parseInt(str3);
 			}else{
 				System.out.println("\n----------\n半角数値でメニューを選択してください。\n----------\n");
 			}
@@ -93,28 +93,28 @@ public class KisoKadai3 {
 			if(nu==2){
 				System.out.println("ファイルを書く");
 				try {
-					boolean mode = false;
+					boolean mode1 = false;
 					System.out.println("モードの設定。1:追記、2:上書き");
-					BufferedReader br3 = new BufferedReader(new InputStreamReader(System.in));
-					String str3 = br3.readLine();
+					BufferedReader br4 = new BufferedReader(new InputStreamReader(System.in));
+					String str4 = br4.readLine();
 					// モードを決める
-					switch (str3) {
+					switch (str4) {
 					case "1":
-						mode = true;
+						mode1 = true;
 						break;
 					case "2":
-						mode = false;
+						mode1 = false;
 					default:
 						break;
 					}
 					//出力先を作成する
-					FileWriter fw = new FileWriter(file.getAbsolutePath(), mode);
+					FileWriter fw = new FileWriter(file.getAbsolutePath(), mode1);
 					PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
 
 					//内容を指定する
-					BufferedReader br4 = new BufferedReader(new InputStreamReader(System.in));
-					String str4 = br4.readLine();
-					pw.println(str4);
+					BufferedReader br5 = new BufferedReader(new InputStreamReader(System.in));
+					String str5 = br5.readLine();
+					pw.println(str5);
 
 					//ファイルに書き出す
 					pw.close();
